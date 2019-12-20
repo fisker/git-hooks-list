@@ -1,0 +1,27 @@
+# ignore file for `stylelint`
+#
+# update: wget -O .stylelintignore https://git.io/fjVjA
+# document: https://stylelint.io/user-guide/configuration/#ignorefiles
+#
+
+# also lint dot files
+!.*
+
+# vendors
+node_modules/**
+**/vendors/**
+**/vendor/**
+**/third-party/**
+
+# build file
+dist/**
+**/*.min.*
+
+# fixtures
+**/fixtures/**
+
+# test
+.nyc_output/**
+coverage/**
+
+# project glob
