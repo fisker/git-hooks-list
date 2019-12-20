@@ -1,6 +1,6 @@
 {
   "name": "git-hooks-list",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "List of Git hooks",
   "keywords": [
     "git",
