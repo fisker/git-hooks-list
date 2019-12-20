@@ -1,4 +1,4 @@
-# git-hooks
+# git-hooks-list
 
 > List of Git hooks
 
@@ -7,13 +7,13 @@ Data from [Git - githooks Documentation](https://git-scm.com/docs/githooks)
 ## Install
 
 ```bash
-yarn add git-hooks
+yarn add git-hooks-list
 ```
 
 ## Usage
 
 ```js
-const gitHooks = require('git-hooks')
+const gitHooks = require('git-hooks-list')
 
 console.log(gitHooks)
 
