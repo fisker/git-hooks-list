@@ -60,9 +60,6 @@
     "prettier": "1.19.1",
     "sort-package-json": "1.32.2"
   },
-  "engines": {
-    "node": ">=10.0.0"
-  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
