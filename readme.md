@@ -11,13 +11,13 @@ yarn add git-hooks-list
 
 # OR with npm
 
-npm install git-hooks-list
+npm install --save git-hooks-list
 ```
 
 ## Usage
 
 ```js
-const gitHooks = require('git-hooks-list')
+import {gitHooks} from 'git-hooks-list'
 
 console.log(gitHooks)
 
