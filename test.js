@@ -4,6 +4,10 @@ const hooks = require('.')
 
 assert.strict.ok(Array.isArray(hooks), 'Git hooks should be an array.')
 assert.strict.ok(hooks.length > 0, 'Git hooks should not be empty.')
+assert.strict.ok(
+  hooks.includes('commit-msg'),
+  `Git hooks should has \`commit-msg\``
+)
 
 const hooksInRepository = [
   ...new Set(fs.readdirSync('.git/hooks').filter(file => !file.includes('.'))),
