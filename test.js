@@ -1,19 +1,33 @@
-const assert = require('assert')
-const fs = require('fs')
-const hooks = require('.')
+import test from 'ava'
+import fs from 'fs'
+import hooks from './index.json'
+import fetch from './scripts/fetch'
 
-assert.strict.ok(Array.isArray(hooks), 'Git hooks should be an array.')
-assert.strict.ok(hooks.length > 0, 'Git hooks should not be empty.')
-assert.strict.ok(
-  hooks.includes('commit-msg'),
-  `Git hooks should has \`commit-msg\``
-)
+test('main', t => {
+  t.true(Array.isArray(hooks), 'Git hooks should be an array.')
+  t.true(hooks.length > 0, 'Git hooks should not be empty.')
+  t.true(hooks.includes('commit-msg'), `Git hooks should has \`commit-msg\`.`)
+})
 
-const hooksInRepository = [
-  ...new Set(fs.readdirSync('.git/hooks').filter(file => !file.includes('.'))),
-]
+test('.git/hooks', t => {
+  const hooksInRepository = [
+    ...new Set(
+      fs.readdirSync('.git/hooks').filter(file => !file.includes('.'))
+    ),
+  ]
+  const set = new Set(hooks)
 
-const set = new Set(hooks)
-for (const hook of hooksInRepository) {
-  assert.strict.ok(set.has(hook), `Git hooks should has ${hook}`)
-}
+  for (const hook of hooksInRepository) {
+    t.true(set.has(hook), `Git hooks should has ${hook}.`)
+  }
+})
+
+test('git-scm.com', async t => {
+  const data = await fetch()
+
+  t.deepEqual(
+    hooks,
+    data,
+    `Git hooks should has be same as data from git-scm.com .`
+  )
+})
