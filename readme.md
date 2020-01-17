@@ -17,7 +17,7 @@ npm install --save git-hooks-list
 ## Usage
 
 ```js
-import {gitHooks} from 'git-hooks-list'
+import gitHooks from 'git-hooks-list'
 
 console.log(gitHooks)
 
