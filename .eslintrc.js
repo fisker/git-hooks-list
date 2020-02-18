@@ -13,9 +13,7 @@ module.exports = {
   parserOptions: {},
   extends: ['@fisker'],
   settings: {},
-  rules: {
-    'node/no-unsupported-features/node-builtins': 'warn',
-  },
+  rules: {},
   plugins: [],
   globals: {},
   overrides: [],
