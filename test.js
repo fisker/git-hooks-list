@@ -1,7 +1,8 @@
 import test from 'ava'
 import fs from 'fs'
 import hooks from './index.json'
-import fetch from './scripts/fetch'
+import fetchRepository from './scripts/fetch-repository'
+import fetchWebsite from './scripts/fetch-website'
 
 test('main', t => {
   t.true(Array.isArray(hooks), 'Git hooks should be an array.')
@@ -22,12 +23,22 @@ test('.git/hooks', t => {
   }
 })
 
-test('git-scm.com', async t => {
-  const data = await fetch()
+test('git/git repository', async t => {
+  const dataFromRepository = await fetchRepository()
 
   t.deepEqual(
     hooks,
-    data,
+    dataFromRepository,
+    `Git hooks should has be same as data from git/git repository .`
+  )
+})
+
+test('git-scm.com', async t => {
+  const dataFromWebsite = await fetchWebsite()
+
+  t.deepEqual(
+    hooks,
+    dataFromWebsite,
     `Git hooks should has be same as data from git-scm.com .`
   )
 })
