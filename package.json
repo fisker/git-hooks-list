@@ -7,7 +7,12 @@
     "hooks",
     "list"
   ],
-  "repository": "git@github.com:fisker/git-hooks-list.git",
+  "homepage": "https://github.com/fisker/git-hooks-list#readme",
+  "bugs": {
+    "url": "https://github.com/fisker/git-hooks-list/issues"
+  },
+  "repository": "fisker/git-hooks-list",
+  "funding": "https://github.com/fisker/git-hooks-list?sponsor=1",
   "license": "MIT",
   "author": {
     "name": "fisker Cheung",
