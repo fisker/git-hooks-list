@@ -69,7 +69,7 @@
     "@fisker/commitlint-config": "1.1.7",
     "@fisker/eslint-config": "1.6.6",
     "@fisker/husky-config": "1.1.9",
-    "@fisker/lint-staged-config": "1.0.11",
+    "@fisker/lint-staged-config": "1.0.12",
     "@fisker/prettier-config": "1.0.28",
     "ava": "3.3.0",
     "cheerio": "1.0.0-rc.3",
