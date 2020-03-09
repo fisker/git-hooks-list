@@ -9,7 +9,6 @@ async function fetchData() {
 
   // TODO: use `String#matchAll`
   const body = text.split(/HOOKS\n-----/).pop()
-  // eslint-disable-next-line unicorn/regex-shorthand
   const regex = /(?<hook>[\da-z-]+)\n(?<marks>~+)\n/g
   const hooks = []
   let match
