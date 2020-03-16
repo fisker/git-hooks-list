@@ -3,7 +3,8 @@ import cheerio from 'cheerio'
 
 const GIT_DOCUMENTATION_URL = 'https://git-scm.com/docs/githooks'
 const cheerioObjectToArray = elements =>
-  [...elements].map(element => cheerio(element))
+  // eslint-disable-next-line unicorn/prefer-spread
+  Array.from(elements).map(element => cheerio(element))
 
 async function fetchData() {
   const {body: html} = await got(GIT_DOCUMENTATION_URL)
