@@ -4,16 +4,16 @@ import hooks from './index.json'
 import fetchRepository from './scripts/fetch-repository'
 import fetchWebsite from './scripts/fetch-website'
 
-test('main', t => {
+test('main', (t) => {
   t.true(Array.isArray(hooks), 'Git hooks should be an array.')
   t.true(hooks.length > 0, 'Git hooks should not be empty.')
   t.true(hooks.includes('commit-msg'), `Git hooks should has \`commit-msg\`.`)
 })
 
-test('.git/hooks', t => {
+test('.git/hooks', (t) => {
   const hooksInRepository = [
     ...new Set(
-      fs.readdirSync('.git/hooks').filter(file => !file.includes('.'))
+      fs.readdirSync('.git/hooks').filter((file) => !file.includes('.'))
     ),
   ]
   const set = new Set(hooks)
@@ -23,7 +23,7 @@ test('.git/hooks', t => {
   }
 })
 
-test('git/git repository', async t => {
+test('git/git repository', async (t) => {
   const dataFromRepository = await fetchRepository()
 
   t.deepEqual(
@@ -33,7 +33,7 @@ test('git/git repository', async t => {
   )
 })
 
-test('git-scm.com', async t => {
+test('git-scm.com', async (t) => {
   const dataFromWebsite = await fetchWebsite()
 
   t.deepEqual(
