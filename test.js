@@ -4,6 +4,8 @@ import hooks from './index.json'
 import fetchRepository from './scripts/fetch-repository'
 import fetchWebsite from './scripts/fetch-website'
 
+const SAMPLE_EXTENSION = '.sample'
+
 test('main', (t) => {
   t.true(Array.isArray(hooks), 'Git hooks should be an array.')
   t.true(hooks.length > 0, 'Git hooks should not be empty.')
@@ -11,13 +13,18 @@ test('main', (t) => {
 })
 
 test('.git/hooks', (t) => {
-  const hooksInRepository = [
-    ...new Set(
-      fs.readdirSync('.git/hooks').filter((file) => !file.includes('.'))
-    ),
-  ]
+  const files = fs.readdirSync('.git/hooks')
+
+  const hooksInRepository = new Set([
+    ...files.filter((file) => !file.includes('.')),
+    ...files
+      .filter((file) => file.endsWith(SAMPLE_EXTENSION))
+      .map((file) => file.slice(0, -SAMPLE_EXTENSION.length)),
+  ])
+
   const set = new Set(hooks)
 
+  t.true(hooksInRepository.length !== 0)
   for (const hook of hooksInRepository) {
     t.true(set.has(hook), `Git hooks should has ${hook}.`)
   }
@@ -29,7 +36,7 @@ test('git/git repository', async (t) => {
   t.deepEqual(
     hooks,
     dataFromRepository,
-    `Git hooks should has be same as data from git/git repository .`
+    `Git hooks should has be same as data from git/git repository.`
   )
 })
 
@@ -39,6 +46,6 @@ test('git-scm.com', async (t) => {
   t.deepEqual(
     hooks,
     dataFromWebsite,
-    `Git hooks should has be same as data from git-scm.com .`
+    `Git hooks should has be same as data from git-scm.com.`
   )
 })
