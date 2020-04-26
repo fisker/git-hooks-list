@@ -32,7 +32,7 @@ async function fetchData() {
       const id = parent.attr('id')
 
       if (anchor.attr('href') !== `#${id}`) {
-        return null
+        return
       }
 
       const hook = parent.text().trim()
