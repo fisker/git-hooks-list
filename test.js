@@ -43,9 +43,12 @@ test('git/git repository', async (t) => {
 test('git-scm.com', async (t) => {
   const dataFromWebsite = await fetchWebsite()
 
-  t.deepEqual(
-    hooks,
-    dataFromWebsite,
-    `Git hooks should has be same as data from git-scm.com.`
-  )
+  t.true(hooks.length >= dataFromWebsite.length)
+
+  for (const hook of dataFromWebsite) {
+    t.true(
+      hooks.includes(hook),
+      `Git hooks should has documented ${hook} hook from git-scm.com.`
+    )
+  }
 })
