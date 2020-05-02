@@ -9,7 +9,7 @@ const SAMPLE_EXTENSION = '.sample'
 test('main', (t) => {
   t.true(Array.isArray(hooks), 'Git hooks should be an array.')
   t.true(hooks.length > 0, 'Git hooks should not be empty.')
-  t.true(hooks.includes('commit-msg'), `Git hooks should has \`commit-msg\`.`)
+  t.true(hooks.includes('commit-msg'), 'Git hooks should has `commit-msg`.')
 })
 
 test('.git/hooks', (t) => {
@@ -36,7 +36,7 @@ test('git/git repository', async (t) => {
   t.deepEqual(
     hooks,
     dataFromRepository,
-    `Git hooks should has be same as data from git/git repository.`
+    'Git hooks should has be same as data from git/git repository.'
   )
 })
 
