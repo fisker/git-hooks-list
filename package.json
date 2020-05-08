@@ -71,7 +71,7 @@
     "@fisker/husky-config": "2.1.2",
     "@fisker/lint-staged-config": "2.1.0",
     "@fisker/prettier-config": "2.2.1",
-    "ava": "3.8.1",
+    "ava": "3.8.2",
     "cheerio": "1.0.0-rc.3",
     "cz-conventional-changelog": "3.2.0",
     "del-cli": "3.0.0",
