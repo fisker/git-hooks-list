@@ -78,7 +78,7 @@
     "eslint": "7.4.0",
     "eslint-config-fisker": "4.5.0",
     "esm": "3.2.25",
-    "got": "11.3.0",
+    "got": "11.4.0",
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
     "markdownlint-cli": "0.23.2",
