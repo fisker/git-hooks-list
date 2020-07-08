@@ -15,6 +15,7 @@
   "update",
   "post-receive",
   "post-update",
+  "ref-transaction",
   "push-to-checkout",
   "pre-auto-gc",
   "post-rewrite",
