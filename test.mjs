@@ -1,10 +1,10 @@
 import test from 'ava'
 import fs from 'fs'
-import hooks from './index.json'
-import fetchRepository from './scripts/fetch-repository'
-import fetchWebsite from './scripts/fetch-website'
+import fetchRepository from './scripts/fetch-repository.mjs'
+import fetchWebsite from './scripts/fetch-website.mjs'
 
 const SAMPLE_EXTENSION = '.sample'
+const hooks = JSON.parse(fs.readFileSync('./index.json'))
 
 test('main', (t) => {
   t.true(Array.isArray(hooks), 'Git hooks should be an array.')
