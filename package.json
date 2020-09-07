@@ -45,7 +45,7 @@
     "release": "run-s lint test format dist",
     "test": "ava",
     "test-coverage": "nyc yarn test",
-    "update": "node -r esm scripts/update.js"
+    "update": "node scripts/update.mjs"
   },
   "config": {
     "commitizen": {
