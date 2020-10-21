@@ -13,6 +13,7 @@
   "pre-push",
   "pre-receive",
   "update",
+  "proc-receive",
   "post-receive",
   "post-update",
   "reference-transaction",
