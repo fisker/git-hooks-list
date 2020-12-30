@@ -8,7 +8,7 @@ const hooks = JSON.parse(fs.readFileSync('./index.json'))
 
 test('main', (t) => {
   t.true(Array.isArray(hooks), 'Git hooks should be an array.')
-  t.true(hooks.length > 0, 'Git hooks should not be empty.')
+  t.true(hooks.length !== 0, 'Git hooks should not be empty.')
   t.true(hooks.includes('commit-msg'), 'Git hooks should has `commit-msg`.')
 })
 
