@@ -1,5 +1,5 @@
 import test from 'ava'
-import fs from 'fs'
+import fs from 'node:fs'
 import fetchRepository from './scripts/fetch-repository.mjs'
 import fetchWebsite from './scripts/fetch-website.mjs'
 

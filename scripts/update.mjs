@@ -1,10 +1,9 @@
+import path from 'node:path'
 import writePrettierFile from 'write-prettier-file'
-import path from 'path'
-import url from 'url'
+import createEsmUtils from 'esm-utils'
 import fetch from './fetch-repository.mjs'
 
-const dirname = path.dirname(url.fileURLToPath(import.meta.url))
-
+const {dirname} = createEsmUtils(import.meta)
 const JSON_FILE = path.join(dirname, '../index.json')
 
 ;(async () => {

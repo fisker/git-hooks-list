@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
   # schedule:
   #   - cron: "0 23 * * 6"
@@ -19,7 +19,7 @@ jobs:
           # - "windows-latest"
         node_version:
           # - "13"
-          - "12"
+          - "16"
           # - "10"
         # exclude:
         #   - os: "macos-latest"
@@ -31,8 +31,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-        with:
-          depth: 1
 
       - name: Setup Node.js
         uses: actions/setup-node@master
@@ -76,13 +74,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-        with:
-          fetch-depth: 1
 
       - name: Setup Node.js
         uses: actions/setup-node@master
-        with:
-          node-version: "12"
 
       - name: Install Dependencies
         run: yarn
