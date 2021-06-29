@@ -4,25 +4,26 @@ import cheerio from 'cheerio'
 const GIT_DOCUMENTATION_URL = 'https://git-scm.com/docs/githooks'
 const cheerioObjectToArray = (elements) =>
   // eslint-disable-next-line unicorn/prefer-spread
-  Array.from(elements).map((element) => cheerio(element))
+  Array.from(elements).map((element) => cheerio.default(element))
 
 async function fetchData() {
   const {body: html} = await got(GIT_DOCUMENTATION_URL)
-  const sections = cheerioObjectToArray(cheerio.load(html)('.sect1')).reduce(
-    (sections, section) => {
-      const anchor = section.find('a.anchor')
-      const parent = anchor.parent()
-      const id = parent.attr('id').replace(/^_/, '')
 
-      if (anchor.attr('href') !== `#_${id}`) {
-        return sections
-      }
+  const sections = Object.fromEntries(
+    cheerioObjectToArray(cheerio.load(html)('.sect1'))
+      .map((section) => {
+        const anchor = section.find('a.anchor')
+        const parent = anchor.parent()
+        const id = parent.attr('id').replace(/^_/, '')
 
-      const body = section.find('.sectionbody')
-      sections[id] = cheerio(body)
-      return sections
-    },
-    {}
+        if (anchor.attr('href') !== `#_${id}`) {
+          return
+        }
+
+        const body = section.find('.sectionbody')
+        return [id, cheerio.default(body)]
+      })
+      .filter(Boolean)
   )
 
   const hooks = cheerioObjectToArray(sections.hooks.find('.sect2'))

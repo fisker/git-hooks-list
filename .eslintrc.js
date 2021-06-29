@@ -13,7 +13,9 @@ module.exports = {
   parserOptions: {},
   extends: ['@fisker'],
   settings: {},
-  rules: {},
+  rules: {
+    'node/no-unsupported-features/es-builtins': ['error', {version: '12'}],
+  },
   plugins: [],
   globals: {},
   overrides: [],
