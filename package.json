@@ -7,6 +7,7 @@
     "hooks",
     "list"
   ],
+  "type": "module",
   "homepage": "https://github.com/fisker/git-hooks-list#readme",
   "bugs": {
     "url": "https://github.com/fisker/git-hooks-list/issues"
@@ -20,12 +21,16 @@
     "url": "https://www.fiskercheung.com/"
   },
   "sideEffects": false,
+  "exports": {
+    "import": "./index.js",
+    "require": "./index.json"
+  },
   "main": "index.json",
   "jsdelivr": "index.json",
   "unpkg": "index.json",
   "browser": "index.json",
   "files": [
-    "index.json"
+    "index.json","index.js"
   ],
   "scripts": {
     "clean": "run-p clean:*",
@@ -45,7 +50,7 @@
     "release": "run-s lint test format dist",
     "test": "ava",
     "test-coverage": "nyc yarn test",
-    "update": "node scripts/update.mjs"
+    "update": "node scripts/update.js"
   },
   "config": {
     "commitizen": {

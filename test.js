@@ -1,7 +1,7 @@
 import test from 'ava'
 import fs from 'node:fs'
-import fetchRepository from './scripts/fetch-repository.mjs'
-import fetchWebsite from './scripts/fetch-website.mjs'
+import fetchRepository from './scripts/fetch-repository.js'
+import fetchWebsite from './scripts/fetch-website.js'
 
 const SAMPLE_EXTENSION = '.sample'
 const hooks = JSON.parse(fs.readFileSync('./index.json'))
