@@ -7,7 +7,6 @@
     "hooks",
     "list"
   ],
-  "type": "module",
   "homepage": "https://github.com/fisker/git-hooks-list#readme",
   "bugs": {
     "url": "https://github.com/fisker/git-hooks-list/issues"
@@ -21,6 +20,7 @@
     "url": "https://www.fiskercheung.com/"
   },
   "sideEffects": false,
+  "type": "module",
   "exports": {
     "import": "./index.js",
     "require": "./index.json"
@@ -30,7 +30,8 @@
   "unpkg": "index.json",
   "browser": "index.json",
   "files": [
-    "index.json","index.js"
+    "index.json",
+    "index.js"
   ],
   "scripts": {
     "clean": "run-p clean:*",
