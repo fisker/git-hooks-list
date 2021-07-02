@@ -78,7 +78,7 @@
     "cheerio": "1.0.0-rc.10",
     "cz-conventional-changelog": "3.3.0",
     "del-cli": "4.0.0",
-    "eslint": "7.29.0",
+    "eslint": "7.30.0",
     "esm-utils": "1.1.0",
     "got": "11.8.2",
     "husky": "7.0.0",
