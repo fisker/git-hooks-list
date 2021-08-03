@@ -8,7 +8,7 @@ async function fetchData() {
   const {body: text} = await got(GIT_REPOSITORY_FILE_URL)
 
   // TODO: use `String#matchAll`
-  const body = text.split(/HOOKS\n-----/).pop()
+  const body = text.split(/HOOKS\n-{5}/).pop()
   const regex = /(?<hook>[\da-z-]+)\n(?<marks>~+)\n/g
   const hooks = []
   let match
