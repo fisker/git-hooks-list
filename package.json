@@ -88,7 +88,7 @@
     "nyc": "15.1.0",
     "prettier": "2.3.2",
     "sort-package-json": "1.50.0",
-    "write-prettier-file": "2.0.0"
+    "write-prettier-file": "2.1.0"
   },
   "publishConfig": {
     "access": "public",
