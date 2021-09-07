@@ -1,5 +1,5 @@
-import test from 'ava'
 import fs from 'node:fs'
+import test from 'ava'
 import fetchRepository from './scripts/fetch-repository.js'
 import fetchWebsite from './scripts/fetch-website.js'
 
@@ -36,7 +36,7 @@ test('git/git repository', async (t) => {
   t.deepEqual(
     hooks,
     dataFromRepository,
-    'Git hooks should has be same as data from git/git repository.'
+    'Git hooks should has be same as data from git/git repository.',
   )
 })
 
@@ -48,7 +48,7 @@ test('git-scm.com', async (t) => {
   for (const hook of dataFromWebsite) {
     t.true(
       hooks.includes(hook),
-      `Git hooks should has documented ${hook} hook from git-scm.com.`
+      `Git hooks should has documented ${hook} hook from git-scm.com.`,
     )
   }
 })

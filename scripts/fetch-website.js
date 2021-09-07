@@ -23,7 +23,7 @@ async function fetchData() {
         const body = section.find('.sectionbody')
         return [id, cheerio.default(body)]
       })
-      .filter(Boolean)
+      .filter(Boolean),
   )
 
   const hooks = cheerioObjectToArray(sections.hooks.find('.sect2'))
