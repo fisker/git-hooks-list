@@ -70,7 +70,7 @@
   "devDependencies": {
     "@commitlint/cli": "16.1.0",
     "@fisker/commitlint-config": "2.0.2",
-    "@fisker/eslint-config": "10.0.12",
+    "@fisker/eslint-config": "10.0.13",
     "@fisker/husky-config": "4.1.2",
     "@fisker/lint-staged-config": "3.1.4",
     "@fisker/prettier-config": "5.0.5",
@@ -79,7 +79,6 @@
     "cz-conventional-changelog": "3.3.0",
     "del-cli": "4.0.1",
     "eslint": "8.8.0",
-    "esm-utils": "2.0.1",
     "got": "12.0.1",
     "husky": "7.0.4",
     "lint-staged": "12.3.3",
