@@ -72,7 +72,7 @@
     "ava": "4.2.0",
     "cheerio": "1.0.0-rc.11",
     "cz-conventional-changelog": "3.3.0",
-    "del-cli": "4.0.1",
+    "del-cli": "5.0.0",
     "eslint": "8.16.0",
     "husky": "8.0.1",
     "lint-staged": "12.4.1",
