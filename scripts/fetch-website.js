@@ -1,13 +1,13 @@
-import got from 'got'
 import cheerio from 'cheerio'
 
 const GIT_DOCUMENTATION_URL = 'https://git-scm.com/docs/githooks'
 const cheerioObjectToArray = (elements) =>
   // eslint-disable-next-line unicorn/prefer-spread
-  Array.from(elements).map((element) => cheerio.default(element))
+  Array.from(elements).map((element) => cheerio(element))
 
 async function fetchData() {
-  const {body: html} = await got(GIT_DOCUMENTATION_URL)
+  const response = await fetch(GIT_DOCUMENTATION_URL)
+  const html = await response.text()
 
   const sections = Object.fromEntries(
     cheerioObjectToArray(cheerio.load(html)('.sect1'))
@@ -21,7 +21,7 @@ async function fetchData() {
         }
 
         const body = section.find('.sectionbody')
-        return [id, cheerio.default(body)]
+        return [id, cheerio(body)]
       })
       .filter(Boolean),
   )

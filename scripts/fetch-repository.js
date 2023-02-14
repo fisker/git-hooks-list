@@ -1,19 +1,17 @@
-import got from 'got'
-
 // https://github.com/git/git/blob/master/Documentation/githooks.txt
 const GIT_REPOSITORY_FILE_URL =
   'https://raw.githubusercontent.com/git/git/master/Documentation/githooks.txt'
 
 async function fetchData() {
-  const {body: text} = await got(GIT_REPOSITORY_FILE_URL)
+  const response = await fetch(GIT_REPOSITORY_FILE_URL)
+  const text = await response.text()
 
-  // TODO: use `String#matchAll`
   const body = text.split(/HOOKS\n-{5}/).pop()
-  const regex = /(?<hook>[\da-z-]+)\n(?<marks>~+)\n/g
+  const regexp = /(?<hook>[\da-z-]+)\n(?<marks>~+)\n/g
   const hooks = []
-  let match
-  while ((match = regex.exec(body)) !== null) {
-    const {hook, marks} = match.groups
+  for (const {
+    groups: {hook, marks},
+  } of body.matchAll(regexp)) {
     if (hook.length === marks.length) {
       hooks.push(hook)
     }

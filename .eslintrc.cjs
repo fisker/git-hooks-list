@@ -1,7 +1,7 @@
 /*!
  * config file for `eslint`
  *
- * update: wget -O .eslintrc.js https://git.io/fjVjK
+ * update: wget -O .eslintrc.cjs https://git.io/fjVjK
  * document: https://eslint.org/docs/user-guide/configuring
  */
 
@@ -13,9 +13,7 @@ module.exports = {
   parserOptions: {},
   extends: ['@fisker'],
   settings: {},
-  rules: {
-    'node/no-unsupported-features/es-builtins': ['error', {version: '12'}],
-  },
+  rules: {},
   plugins: [],
   globals: {},
   overrides: [],

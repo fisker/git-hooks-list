@@ -1,11 +1,8 @@
-import path from 'node:path'
 import writePrettierFile from 'write-prettier-file'
-import fetch from './fetch-repository.js'
+import fetchData from './fetch-repository.js'
+// import fetchData from './fetch-website.js'
 
-const JSON_FILE = new URL('../index.json', import.meta.url)
-
-;(async () => {
-  const data = await fetch()
-
-  await writePrettierFile(JSON_FILE, JSON.stringify(data, undefined, 2))
-})()
+await writePrettierFile(
+  new URL('../index.json', import.meta.url),
+  JSON.stringify(await fetchData(), undefined, 2),
+)
