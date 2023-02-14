@@ -1,4 +1,5 @@
 import cheerio from 'cheerio'
+import fetchText from './fetch-text.js'
 
 const GIT_DOCUMENTATION_URL = 'https://git-scm.com/docs/githooks'
 const cheerioObjectToArray = (elements) =>
@@ -6,8 +7,7 @@ const cheerioObjectToArray = (elements) =>
   Array.from(elements).map((element) => cheerio(element))
 
 async function fetchData() {
-  const response = await fetch(GIT_DOCUMENTATION_URL)
-  const html = await response.text()
+  const html = await fetchText(GIT_DOCUMENTATION_URL)
 
   const sections = Object.fromEntries(
     cheerioObjectToArray(cheerio.load(html)('.sect1'))
