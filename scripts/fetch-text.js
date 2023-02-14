@@ -9,6 +9,7 @@ const hash = (string) =>
       0,
     )
     .toString(16)
+const SEPARATOR = `\n${'-'.repeat(80)}\n\n`
 
 async function fetchText(url) {
   const cacheFile = new URL(hash(url), CACHE_DIRECTORY)
@@ -19,10 +20,9 @@ async function fetchText(url) {
   } catch {}
 
   if (cached) {
-    const [timeString, ...rest] = cached.split('\n\n')
-    const time = Number(timeString)
-    if (Date.now() - time < CACHE_TIME) {
-      return rest.join('\n')
+    const [time, text] = cached.split(SEPARATOR)
+    if (Date.now() - Number(time) < CACHE_TIME) {
+      return text
     }
   }
 
@@ -30,7 +30,7 @@ async function fetchText(url) {
   const text = await response.text()
 
   await fs.mkdir(CACHE_DIRECTORY, {recursive: true})
-  await fs.writeFile(cacheFile, `${Date.now()}\n\n${text}`)
+  await fs.writeFile(cacheFile, [Date.now(), text].join(SEPARATOR))
 
   return text
 }
