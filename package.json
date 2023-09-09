@@ -80,7 +80,7 @@
     "nyc": "15.1.0",
     "prettier": "2.8.4",
     "sort-package-json": "2.4.1",
-    "write-prettier-file": "2.2.0"
+    "write-prettier-file": "3.0.3"
   },
   "packageManager": "yarn@3.4.1",
   "publishConfig": {
