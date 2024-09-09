@@ -70,7 +70,7 @@
     "@fisker/markdownlint-cli2-config": "0.0.3",
     "@fisker/prettier-config": "5.1.1",
     "ava": "6.1.1",
-    "cheerio": "1.0.0-rc.12",
+    "cheerio": "1.0.0",
     "del-cli": "5.1.0",
     "eslint": "8.56.0",
     "husky": "9.0.11",
