@@ -69,7 +69,7 @@
     "@fisker/lint-staged-config": "3.3.2",
     "@fisker/markdownlint-cli2-config": "0.0.3",
     "@fisker/prettier-config": "5.1.1",
-    "ava": "6.1.1",
+    "ava": "6.2.0",
     "cheerio": "1.0.0-rc.12",
     "del-cli": "5.1.0",
     "eslint": "8.56.0",
