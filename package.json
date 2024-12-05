@@ -82,7 +82,7 @@
     "sort-package-json": "2.8.0",
     "write-prettier-file": "3.0.3"
   },
-  "packageManager": "yarn@3.4.1",
+  "packageManager": "yarn@3.8.7",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
