@@ -99,4 +99,5 @@ typings/
 .pnp.js
 
 # project ignore files
+.deleted/
 dist/

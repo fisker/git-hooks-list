@@ -43,7 +43,7 @@ async function fetchData() {
         description: cheerioObjectToArray(section.find('.paragraph'))
           .map((paragraph) => paragraph.text())
           .join('\n')
-          .replace(/\n+/g, '\n')
+          .replaceAll(/\n+/g, '\n')
           .trim(),
       }
     })
