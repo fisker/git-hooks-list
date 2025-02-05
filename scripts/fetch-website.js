@@ -6,17 +6,15 @@ const cheerioObjectToArray = (elements, $) =>
   // eslint-disable-next-line unicorn/prefer-spread
   Array.from(elements).map((element) => $(element))
 
-
-fetchData()
 async function fetchData() {
   const html = await fetchText(GIT_DOCUMENTATION_URL)
 
-  const $ = cheerio.load(html);
+  const $ = cheerio.load(html)
 
   const sections = Object.fromEntries(
     cheerioObjectToArray($('.sect1'), $)
       .map((section) => {
-         const anchor = section.find('a.anchor')
+        const anchor = section.find('a.anchor')
         const parent = anchor.parent()
         const id = parent.attr('id').replace(/^_/, '')
 
@@ -29,7 +27,6 @@ async function fetchData() {
       })
       .filter(Boolean),
   )
-
 
   const hooks = cheerioObjectToArray(sections.hooks.find('.sect2'), $)
     .map((section) => {
@@ -53,7 +50,6 @@ async function fetchData() {
       }
     })
     .filter(Boolean)
-
 
   return hooks.map(({hook}) => hook)
 }
