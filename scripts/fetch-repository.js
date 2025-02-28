@@ -1,8 +1,8 @@
 import fetchText from './fetch-text.js'
-// https://github.com/git/git/blob/master/Documentation/githooks.txt
+// https://github.com/git/git/blob/master/Documentation/githooks.adoc
 const SOURCE_URLS = [
-  'https://raw.githubusercontent.com/git/git/master/Documentation/githooks.txt',
-  'https://cdn.jsdelivr.net/gh/git/git/Documentation/githooks.txt',
+  'https://raw.githubusercontent.com/git/git/master/Documentation/githooks.adoc',
+  'https://cdn.jsdelivr.net/gh/git/git/Documentation/githooks.adoc',
 ]
 
 async function fetchData() {
