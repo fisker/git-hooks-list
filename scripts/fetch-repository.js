@@ -6,22 +6,41 @@ const SOURCE_URLS = [
   'https://gh-proxy.com/github.com/git/git/blob/HEAD/Documentation/githooks.adoc',
 ]
 
-async function fetchData() {
-  const text = await Promise.any(SOURCE_URLS.map((url) => fetchText(url)))
+const HOOKS_START_MARK = 'HOOKS'
 
-  const body = text.split(/HOOKS\n-{5}/).pop()
-  // eslint-disable-next-line sonarjs/slow-regex
-  const regexp = /(?<hook>[\da-z-]+)\n(?<marks>~+)\n/g
-  const hooks = []
-  for (const {
-    groups: {hook, marks},
-  } of body.matchAll(regexp)) {
-    if (hook.length === marks.length) {
-      hooks.push(hook)
+function* getHooks(text) {
+  const lines = text.split('\n')
+
+  let foundHooksStartMark = false
+  for (let index = 0; index < lines.length - 1; index++) {
+    const line = lines[index]
+    const nextLine = lines[index + 1]
+
+    if (!foundHooksStartMark) {
+      if (
+        line === HOOKS_START_MARK &&
+        nextLine === '-'.repeat(HOOKS_START_MARK.length)
+      ) {
+        foundHooksStartMark = true
+        // eslint-disable-next-line sonarjs/updated-loop-counter
+        index += 1
+      }
+
+      continue
+    }
+
+    if (/^[\da-z-]+$/u.test(line) && nextLine === '~'.repeat(line.length)) {
+      yield line
+
+      // eslint-disable-next-line sonarjs/updated-loop-counter
+      index += 1
     }
   }
+}
 
-  return hooks
+async function fetchData() {
+  const text = await Promise.any(SOURCE_URLS.map((url) => fetchText(url)))
+  return [...getHooks(text)]
 }
 
 export default fetchData
