@@ -51,7 +51,7 @@
     "lint:markdown": "markdownlint-cli2",
     "lint:package-json": "yarn run fix:package-json --check",
     "lint:prettier": "prettier . --check",
-    "prepare": "husky install",
+    "prepare": "husky",
     "release": "run-s lint test fix dist",
     "test": "ava",
     "test-coverage": "c8 yarn test",
