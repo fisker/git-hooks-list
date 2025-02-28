@@ -61,6 +61,9 @@
     "verbose": true
   },
   "c8": {
+    "include": [
+      "index.js"
+    ],
     "reporter": [
       "text",
       "lcov"
