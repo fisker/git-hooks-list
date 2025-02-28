@@ -6,6 +6,10 @@ on:
     # “At 00:00 on Friday.” https://crontab.guru/#0_0_*_*_5
     - cron: "0 0 * * 5"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   update:
     if: github.event_name != 'schedule' || github.repository == 'fisker/git-hooks-list'

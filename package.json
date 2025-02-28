@@ -22,8 +22,11 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "require": "./index.json",
-    "default": "./index.js"
+    ".": {
+      "require": "./index.json",
+      "default": "./index.js"
+    },
+    "./*": "./*"
   },
   "main": "index.json",
   "jsdelivr": "index.json",
