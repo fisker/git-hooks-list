@@ -1,4 +1,4 @@
-name: Update
+name: Update data
 
 on:
   workflow_dispatch:
@@ -12,27 +12,9 @@ concurrency:
 
 jobs:
   update:
-    if: github.event_name != 'schedule' || github.repository == 'fisker/git-hooks-list'
-    runs-on: ubuntu-latest
-    env:
-      YARN_ENABLE_IMMUTABLE_INSTALLS: false
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-
-      - name: Install Dependencies
-        run: yarn
-
-      - name: Update Data
-        run: yarn update
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          commit-message: Update
-          branch: automated-update
-          branch-suffix: timestamp
-          title: Update data
+    if: github.event_name != 'schedule' || github.repository == 'fisker/playground'
+    permissions:
+      contents: write
+      pull-requests: write
+    name: Run update
+    uses: fisker/shared-workflows/.github/workflows/scheduled-task.yml@main
