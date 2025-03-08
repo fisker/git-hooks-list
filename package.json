@@ -23,6 +23,7 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "require": "./index.json",
       "default": "./index.js"
     },
@@ -33,6 +34,7 @@
   "unpkg": "index.json",
   "browser": "index.json",
   "files": [
+    "index.d.ts",
     "index.json",
     "index.js"
   ],
@@ -86,6 +88,7 @@
     "npm-run-all2": "7.0.2",
     "prettier": "3.5.3",
     "sort-package-json": "3.0.0",
+    "outdent": "0.8.0",
     "write-prettier-file": "3.0.3"
   },
   "packageManager": "yarn@4.6.0",
