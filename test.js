@@ -1,8 +1,8 @@
 import fs from 'node:fs'
 import test from 'ava'
+import hooks from './index.js'
 import fetchRepository from './scripts/fetch-repository.js'
 import fetchWebsite from './scripts/fetch-website.js'
-import hooks from './index.js'
 
 const SAMPLE_EXTENSION = '.sample'
 
