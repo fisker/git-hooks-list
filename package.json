@@ -83,7 +83,7 @@
     "del-cli": "6.0.0",
     "eslint": "9.22.0",
     "husky": "9.1.7",
-    "lint-staged": "15.4.3",
+    "lint-staged": "15.5.2",
     "markdownlint-cli2": "0.17.2",
     "npm-run-all2": "7.0.2",
     "outdent": "0.8.0",
