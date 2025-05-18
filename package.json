@@ -85,7 +85,7 @@
     "husky": "9.1.7",
     "lint-staged": "15.4.3",
     "markdownlint-cli2": "0.17.2",
-    "npm-run-all2": "7.0.2",
+    "npm-run-all2": "8.0.2",
     "outdent": "0.8.0",
     "prettier": "3.5.3",
     "release-it": "18.1.2",
