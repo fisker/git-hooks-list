@@ -92,7 +92,7 @@
     "sort-package-json": "3.0.0",
     "write-prettier-file": "3.0.3"
   },
-  "packageManager": "yarn@4.6.0",
+  "packageManager": "yarn@4.9.2",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
