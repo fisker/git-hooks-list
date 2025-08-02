@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   update:
-    if: github.event_name != 'schedule' || github.repository == 'fisker/playground'
+    if: github.event_name != 'schedule' || github.repository == 'fisker/git-hooks-list'
     permissions:
       contents: write
       pull-requests: write
