@@ -1,18 +1,19 @@
 import fs from 'node:fs'
-import test from 'ava'
+import {test} from 'node:test'
+import assert from 'node:assert/strict'
 import fetchRepository from './scripts/fetch-repository.js'
 import fetchWebsite from './scripts/fetch-website.js'
 import hooks from './index.js'
 
 const SAMPLE_EXTENSION = '.sample'
 
-test('main', (t) => {
-  t.true(Array.isArray(hooks), 'Git hooks should be an array.')
-  t.true(hooks.length !== 0, 'Git hooks should not be empty.')
-  t.true(hooks.includes('commit-msg'), 'Git hooks should has `commit-msg`.')
+test('main', () => {
+  assert.ok(Array.isArray(hooks), 'Git hooks should be an array.')
+  assert.ok(hooks.length !== 0, 'Git hooks should not be empty.')
+  assert.ok(hooks.includes('commit-msg'), 'Git hooks should has `commit-msg`.')
 })
 
-test('.git/hooks', (t) => {
+test('.git/hooks', () => {
   const files = fs.readdirSync('.git/hooks')
 
   const hooksInRepository = new Set([
@@ -24,29 +25,29 @@ test('.git/hooks', (t) => {
 
   const set = new Set(hooks)
 
-  t.true(hooksInRepository.length !== 0)
+  assert.ok(hooksInRepository.length !== 0)
   for (const hook of hooksInRepository) {
-    t.true(set.has(hook), `Git hooks should has ${hook}.`)
+    assert.ok(set.has(hook), `Git hooks should has ${hook}.`)
   }
 })
 
-test('git/git repository', async (t) => {
+test('git/git repository', async () => {
   const dataFromRepository = await fetchRepository()
 
-  t.deepEqual(
+  assert.deepEqual(
     hooks,
     dataFromRepository,
     'Git hooks should has be same as data from git/git repository.',
   )
 })
 
-test('git-scm.com', async (t) => {
+test('git-scm.com', async () => {
   const dataFromWebsite = await fetchWebsite()
 
-  t.true(hooks.length >= dataFromWebsite.length)
+  assert.ok(hooks.length >= dataFromWebsite.length)
 
   for (const hook of dataFromWebsite) {
-    t.true(
+    assert.ok(
       hooks.includes(hook),
       `Git hooks should has documented ${hook} hook from git-scm.com.`,
     )
