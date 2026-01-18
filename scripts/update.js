@@ -1,15 +1,16 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
+import {inspect} from 'node:util'
 import {outdent} from 'outdent'
 import writePrettierFile from 'write-prettier-file'
 import fetchData from './fetch-repository.js'
 // import fetchData from './fetch-website.js'
 
-const list = await fetchData()
+const gitHooks = await fetchData()
 
 await writePrettierFile(
   new URL('../index.json', import.meta.url),
-  JSON.stringify(list, undefined, 2),
+  JSON.stringify(gitHooks, undefined, 2),
 )
 
 const example = outdent`
@@ -17,17 +18,17 @@ const example = outdent`
   import gitHooks from 'git-hooks-list'
 
   console.log(gitHooks)
-  //-> [${list
-    .slice(0, 3)
-    .map((hook) => `'${hook}'`)
-    .join(', ')}, …]
+  //-> ${inspect(gitHooks, {maxArrayLength: 3})
+    .replaceAll('\n', '')
+    .replaceAll('  ', '')
+    .replaceAll(',', ', ')}
   \`\`\`
 `
 
 await writePrettierFile(
   new URL('../index.d.ts', import.meta.url),
   outdent`
-    type GitHook = ${list.map((hook) => JSON.stringify(hook)).join('|')};
+    type GitHook = ${gitHooks.map((hook) => JSON.stringify(hook)).join('|')};
 
     /**
     List of Git hooks.

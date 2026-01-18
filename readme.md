@@ -32,7 +32,7 @@ yarn add git-hooks-list
 import gitHooks from 'git-hooks-list'
 
 console.log(gitHooks)
-//-> ['applypatch-msg', 'pre-applypatch', 'post-applypatch', …]
+//-> ['applypatch-msg', 'pre-applypatch', 'post-applypatch', ... 25 more items]
 ```
 
 <!-- example end -->
