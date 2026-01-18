@@ -1,3 +1,1 @@
-
-
-export {default}from'@fisker/prettier-config'
+export {default} from '@fisker/prettier-config'
