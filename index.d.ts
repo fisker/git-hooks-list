@@ -41,3 +41,4 @@ declare const gitHooks: readonly [
 ]
 
 export default gitHooks
+export type GitHook = (typeof gitHooks)[number]

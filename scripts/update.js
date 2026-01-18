@@ -34,9 +34,10 @@ await writePrettierFile(
     @example
     ${example}
     */
-    declare const gitHooks: readonly ${JSON.stringify(gitHooks, undefined, 2)};
+    declare const gitHooks: readonly ${JSON.stringify(gitHooks, undefined, 2)}
 
-    export default gitHooks;
+    export default gitHooks
+    export type GitHook = (typeof gitHooks)[number]
   `,
 )
 
