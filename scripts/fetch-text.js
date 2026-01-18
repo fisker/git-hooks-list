@@ -17,7 +17,9 @@ async function fetchText(url) {
   let cached = ''
   try {
     cached = await fs.readFile(cacheFile, 'utf8')
-  } catch {}
+  } catch {
+    // No op
+  }
 
   if (cached) {
     const [time, text] = cached.split(SEPARATOR)

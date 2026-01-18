@@ -1,5 +1,5 @@
-import writePrettierFile from 'write-prettier-file'
 import {outdent} from 'outdent'
+import writePrettierFile from 'write-prettier-file'
 import fetchData from './fetch-repository.js'
 // import fetchData from './fetch-website.js'
 
