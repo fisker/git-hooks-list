@@ -28,15 +28,13 @@ const example = outdent`
 await writePrettierFile(
   new URL('../index.d.ts', import.meta.url),
   outdent`
-    type GitHook = ${gitHooks.map((hook) => JSON.stringify(hook)).join('|')};
-
     /**
     List of Git hooks.
 
     @example
     ${example}
     */
-    declare const gitHooks: GitHook[];
+    declare const gitHooks: readonly ${JSON.stringify(gitHooks, undefined, 2)};
 
     export default gitHooks;
   `,

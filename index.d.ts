@@ -1,33 +1,3 @@
-type GitHook =
-  | 'applypatch-msg'
-  | 'pre-applypatch'
-  | 'post-applypatch'
-  | 'pre-commit'
-  | 'pre-merge-commit'
-  | 'prepare-commit-msg'
-  | 'commit-msg'
-  | 'post-commit'
-  | 'pre-rebase'
-  | 'post-checkout'
-  | 'post-merge'
-  | 'pre-push'
-  | 'pre-receive'
-  | 'update'
-  | 'proc-receive'
-  | 'post-receive'
-  | 'post-update'
-  | 'reference-transaction'
-  | 'push-to-checkout'
-  | 'pre-auto-gc'
-  | 'post-rewrite'
-  | 'sendemail-validate'
-  | 'fsmonitor-watchman'
-  | 'p4-changelist'
-  | 'p4-prepare-changelist'
-  | 'p4-post-changelist'
-  | 'p4-pre-submit'
-  | 'post-index-change'
-
 /**
 List of Git hooks.
 
@@ -39,6 +9,35 @@ console.log(gitHooks)
 //-> ['applypatch-msg', 'pre-applypatch', 'post-applypatch', ... 25 more items]
 ```
 */
-declare const gitHooks: GitHook[]
+declare const gitHooks: readonly [
+  'applypatch-msg',
+  'pre-applypatch',
+  'post-applypatch',
+  'pre-commit',
+  'pre-merge-commit',
+  'prepare-commit-msg',
+  'commit-msg',
+  'post-commit',
+  'pre-rebase',
+  'post-checkout',
+  'post-merge',
+  'pre-push',
+  'pre-receive',
+  'update',
+  'proc-receive',
+  'post-receive',
+  'post-update',
+  'reference-transaction',
+  'push-to-checkout',
+  'pre-auto-gc',
+  'post-rewrite',
+  'sendemail-validate',
+  'fsmonitor-watchman',
+  'p4-changelist',
+  'p4-prepare-changelist',
+  'p4-post-changelist',
+  'p4-pre-submit',
+  'post-index-change',
+]
 
 export default gitHooks
