@@ -1,1 +1,1 @@
-export {default} from '@fisker/eslint-config'
+export { default } from '@fisker/eslint-config';

@@ -5,4 +5,4 @@
  * document: https://prettier.io/docs/en/options.html
  */
 
-module.exports = require('@fisker/prettier-config')
+module.exports = require('@fisker/prettier-config');

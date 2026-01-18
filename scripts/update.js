@@ -1,14 +1,14 @@
-import {outdent} from 'outdent'
-import writePrettierFile from 'write-prettier-file'
-import fetchData from './fetch-repository.js'
+import { outdent } from 'outdent';
+import writePrettierFile from 'write-prettier-file';
+import fetchData from './fetch-repository.js';
 // import fetchData from './fetch-website.js'
 
-const list = await fetchData()
+const list = await fetchData();
 
 await writePrettierFile(
   new URL('../index.json', import.meta.url),
   JSON.stringify(list, undefined, 2),
-)
+);
 
 await writePrettierFile(
   new URL('../index.d.ts', import.meta.url),
@@ -30,4 +30,4 @@ await writePrettierFile(
 
     export default gitHooks;
   `,
-)
+);

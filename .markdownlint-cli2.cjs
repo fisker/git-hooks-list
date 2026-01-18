@@ -7,4 +7,4 @@
 
 /* @fisker/markdownlint-cli2-config https://github.com/fisker/shared-configs/tree/main/packages/markdownlint-cli2-config */
 
-module.exports = require('@fisker/markdownlint-cli2-config')
+module.exports = require('@fisker/markdownlint-cli2-config');
