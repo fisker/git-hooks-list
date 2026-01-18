@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: "lts/*"
-      - run: npm pkg delete scripts devDependencies packageManager
+      - run: npm pkg delete scripts devDependencies packageManager c8
       - run: |
           node --version
           npm --version
