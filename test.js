@@ -7,10 +7,10 @@ import hooks from './index.js'
 
 const SAMPLE_EXTENSION = '.sample'
 
-test('main', ({assert: t}) => {
-  t.ok(Array.isArray(hooks), 'Git hooks should be an array.')
-  t.ok(hooks.length !== 0, 'Git hooks should not be empty.')
-  t.ok(hooks.includes('commit-msg'), 'Git hooks should has `commit-msg`.')
+test('main', () => {
+  assert.ok(Array.isArray(hooks), 'Git hooks should be an array.')
+  assert.ok(hooks.length !== 0, 'Git hooks should not be empty.')
+  assert.ok(hooks.includes('commit-msg'), 'Git hooks should has `commit-msg`.')
 })
 
 test('.git/hooks', () => {
