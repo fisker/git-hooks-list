@@ -18,7 +18,7 @@ const example = outdent`
   import gitHooks from 'git-hooks-list'
 
   console.log(gitHooks)
-  //-> ${inspect(gitHooks, {maxArrayLength: 3})
+  //=> ${inspect(gitHooks, {maxArrayLength: 3})
     .replaceAll('\n', '')
     .replaceAll('  ', '')
     .replaceAll(',', ', ')}

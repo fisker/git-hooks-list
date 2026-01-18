@@ -6,7 +6,7 @@ List of Git hooks.
 import gitHooks from 'git-hooks-list'
 
 console.log(gitHooks)
-//-> ['applypatch-msg', 'pre-applypatch', 'post-applypatch', ... 25 more items]
+//=> ['applypatch-msg', 'pre-applypatch', 'post-applypatch', ... 25 more items]
 ```
 */
 declare const gitHooks: readonly [
