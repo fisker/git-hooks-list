@@ -26,10 +26,13 @@ yarn add git-hooks-list
 
 ## Usage
 
+<!-- example start -->
+
 ```js
 import gitHooks from 'git-hooks-list'
 
 console.log(gitHooks)
-
-// => ['applypatch-msg', 'pre-applypatch', 'post-applypatch', 'pre-commit', ...]
+//-> ['applypatch-msg', 'pre-applypatch', 'post-applypatch', …]
 ```
+
+<!-- example end -->

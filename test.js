@@ -10,6 +10,7 @@ const SAMPLE_EXTENSION = '.sample'
 test('main', () => {
   assert.ok(Array.isArray(hooks), 'Git hooks should be an array.')
   assert.ok(hooks.length !== 0, 'Git hooks should not be empty.')
+  assert.ok(hooks.length === new Set(hooks).size, 'Git hooks should be unique.')
   assert.ok(hooks.includes('commit-msg'), 'Git hooks should has `commit-msg`.')
 })
 

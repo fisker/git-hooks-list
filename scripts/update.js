@@ -1,3 +1,5 @@
+import assert from 'node:assert/strict'
+import fs from 'node:fs/promises'
 import {outdent} from 'outdent'
 import writePrettierFile from 'write-prettier-file'
 import fetchData from './fetch-repository.js'
@@ -10,6 +12,18 @@ await writePrettierFile(
   JSON.stringify(list, undefined, 2),
 )
 
+const example = outdent`
+  \`\`\`js
+  import gitHooks from 'git-hooks-list'
+
+  console.log(gitHooks)
+  //-> [${list
+    .slice(0, 3)
+    .map((hook) => `'${hook}'`)
+    .join(', ')}, …]
+  \`\`\`
+`
+
 await writePrettierFile(
   new URL('../index.d.ts', import.meta.url),
   outdent`
@@ -19,15 +33,27 @@ await writePrettierFile(
     List of Git hooks.
 
     @example
-    \`\`\`
-    import gitHooks from 'git-hooks-list'
-
-    console.log(gitHooks)
-    //=> ['applypatch-msg', 'pre-applypatch', 'post-applypatch', 'pre-commit', …]
-    \`\`\`
+    ${example}
     */
     declare const gitHooks: GitHook[];
 
     export default gitHooks;
   `,
 )
+
+{
+  const readmeFile = new URL('../readme.md', import.meta.url)
+  const original = await fs.readFile(readmeFile, 'utf8')
+  const startMark = '<!-- example start -->'
+  const endMark = '<!-- example end -->'
+  const startMarkIndex = original.indexOf(startMark)
+  assert.ok(startMarkIndex !== -1)
+  const endMarkIndex = original.indexOf(endMark, startMarkIndex)
+  assert.ok(endMarkIndex !== -1)
+  const updated = [
+    original.slice(0, startMarkIndex + startMark.length),
+    example,
+    original.slice(endMarkIndex),
+  ].join('\n')
+  await writePrettierFile(readmeFile, updated)
+}

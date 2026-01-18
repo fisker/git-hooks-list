@@ -32,11 +32,11 @@ type GitHook =
 List of Git hooks.
 
 @example
-```
+```js
 import gitHooks from 'git-hooks-list'
 
 console.log(gitHooks)
-//=> ['applypatch-msg', 'pre-applypatch', 'post-applypatch', 'pre-commit', …]
+//-> ['applypatch-msg', 'pre-applypatch', 'post-applypatch', …]
 ```
 */
 declare const gitHooks: GitHook[]
