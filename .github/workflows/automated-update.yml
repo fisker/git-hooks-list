@@ -16,5 +16,6 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      actions: write
     name: Run update
     uses: fisker/shared-workflows/.github/workflows/scheduled-task.yml@main
